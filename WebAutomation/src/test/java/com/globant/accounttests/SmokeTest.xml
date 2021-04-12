@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="SmokeTest">
+    <test name="Account tests">
+        <classes>
+            <class name="com.globant.accounttests.Login"/>
+            <class name="com.globant.accounttests.Logout"/>
+            <class name="com.globant.accounttests.InactiveUser"/>
+        </classes>
+    </test>
+</suite>
