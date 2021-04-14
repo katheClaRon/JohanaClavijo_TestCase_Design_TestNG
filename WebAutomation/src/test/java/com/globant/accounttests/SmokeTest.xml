@@ -4,6 +4,7 @@
 <suite name="SmokeTest">
     <test name="Account tests">
         <classes>
+            <class name="com.globant.accounttests.CreateAccount"/>
             <class name="com.globant.accounttests.Login"/>
             <class name="com.globant.accounttests.Logout"/>
             <class name="com.globant.accounttests.InactiveUser"/>

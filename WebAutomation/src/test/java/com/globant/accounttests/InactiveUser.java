@@ -1,43 +1,51 @@
 package com.globant.accounttests;
 
+import com.globant.utils.BrowserUtils;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.AssertJUnit;
 import org.testng.annotations.*;
 
 public class InactiveUser {
 
-    @BeforeSuite
-    public void precondition(){
-        System.out.println("Iniciando navegador...");
-        AssertJUnit.assertTrue("Inicio navegador",true);
-    }
+    private WebDriver webdriver;
 
     @BeforeClass
-    public void loginAccount(){
-        System.out.println("Iniciar sesión");
-        AssertJUnit.assertTrue("Sesión iniciada",true);
+    public void openBrowser(){
+
+        webdriver = BrowserUtils.getChromeWebDriver();
+        BrowserUtils.openBrowser(webdriver,"https://www.espn.com/?src=com&adblock=true");
     }
 
     @BeforeMethod
-    public void loadSetting(){
-        System.out.println("Ver configuraciones");
-        AssertJUnit.assertTrue("Configuraciones cargadas",true);
+    public void logIn(){
+
     }
 
     @Test
-    public void inactiveUser(){
-        System.out.println("Inactivar cuenta usuario");
-        AssertJUnit.assertTrue("Cuenta inactivada",true);
+    public void deleteAccount(){
+
+        By profileelementlocator = By.id("#global-user-trigger");
+        By espnprofilelocator = By.cssSelector("#global-viewport div:nth-child(4) div.global-user-container ul.account-management li:nth-child(5) a");
+        By cancelbtlocator = By.id("cancel-account");
+        By confirmdetlocator = By.cssSelector("#did-ui-view div.btn-group button.btn-primary");
+
+        By resultnamelocator = By.cssSelector("#global-viewport div.global-user div ul.account-management li.display-user span");
+
+        webdriver.findElement(profileelementlocator).click();
+        webdriver.findElement(espnprofilelocator).click();
+        webdriver.findElement(cancelbtlocator).click();
+        webdriver.findElement(confirmdetlocator).click();
+
+        AssertJUnit.assertTrue(webdriver.findElement(resultnamelocator),isemplty);
+
     }
 
     @AfterMethod
-    public void logout (){
-        System.out.println("Cerrar sesión");
-        AssertJUnit.assertTrue("Sesión cerrada",true);
+    public void close (){
+
+        webdriver.close();
     }
 
-    @AfterClass
-    public void closeBrowser(){
-        System.out.println("Cerrando navegador...");
-        AssertJUnit.assertTrue("Navegador cerrado",true);
-    }
 }
