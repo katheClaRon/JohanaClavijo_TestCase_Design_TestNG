@@ -8,13 +8,14 @@ public class BrowserUtils {
     public static WebDriver getChromeWebDriver() {
 
         System.setProperty("webdriver.chrome.driver", "./src/test/resources/chromeDriver/chromedriver.exe");
-        WebDriver webdriver = new ChromeDriver();
-        webdriver.manage().window().maximize();
-        return webdriver;
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        return driver;
     }
 
-    public static void openBrowser(WebDriver webDriver, String url) {
+    public static void openBrowser(WebDriver driver, String url) {
 
-        webDriver.get(url);
+        driver.get(url);
     }
+
 }
