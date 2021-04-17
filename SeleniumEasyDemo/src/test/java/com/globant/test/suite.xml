@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="suite">
+
+    <test name="Practice Tests Chrome">
+        <parameter name="browser" value="Chrome"></parameter>
+        <parameter name="url" value="https://www.seleniumeasy.com/test/basic-select-dropdown-demo.html"></parameter>
+        <parameter name="dayselected" value="Wednesday"></parameter>
+        <parameter name="result" value="Day selected :- Wednesday"></parameter>
+        <parameter name="multiselectedone" value="New York"></parameter>
+        <parameter name="Firstselected" value="First selected option is :"></parameter>
+        <parameter name="Allselected" value="Options selected are :"></parameter>
+        <classes>
+            <class name="com.globant.test.ValidateTest"/>
+        </classes>
+    </test>
+    <test name="Practice Tests firefox">
+        <parameter name="browser" value="Firefox"></parameter>
+        <parameter name="url" value="https://www.seleniumeasy.com/test/basic-select-dropdown-demo.html"></parameter>
+        <parameter name="dayselected" value="Wednesday"></parameter>
+        <parameter name="result" value="Day selected :- Wednesday"></parameter>
+        <parameter name="multiselectedone" value="New York"></parameter>
+        <parameter name="Firstselected" value="First selected option is :"></parameter>
+        <parameter name="Allselected" value="Options selected are :"></parameter>
+        <classes>
+            <class name="com.globant.test.ValidateTest"/>
+        </classes>
+    </test>
+    <listeners>
+        <listener class-name="com.globant.test.Listener"></listener>
+    </listeners>
+</suite>
